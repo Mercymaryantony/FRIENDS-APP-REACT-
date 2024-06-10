@@ -1,7 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
+
 import Navbar from './Navbar'
 
 const View = () => {
+    const [data,changedata]=useState(
+        [
+            
+ {
+    "_id": "6665dd357f96fb262b8dd5a6",
+    "name": "Ramesh",
+    "friendName": "Tovino",
+    "friendNickName": "TT",
+    "DescribeYourFriend": "Test desc",
+    "__v": 0
+ }
+        ]
+    )
     return (
         <div>
             <Navbar/>
@@ -18,12 +32,16 @@ const View = () => {
     </tr>
   </thead>
   <tbody>
-  <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
+ {data.map(
+    (value,i)=>{
+        return <tr>
+        <th scope="row">{value.name}</th>
+        <td>{value.friendName}</td>
+        <td>{value.friendNickName}</td>
+        <td>{value.DescribeYourFriend}</td>
+      </tr>
+    }
+ )}
   </tbody>
 </table>   
                     </div>
